@@ -102,39 +102,112 @@ Q(t+1)=T′Q(t)+TQ(t)′
 ⇒Q(t+1)=T⊕Q(t)
 
 ### Procedure
-/* write all the steps invloved */
+Step 1:
+Open Quartus and select new project and choose the file location.
 
+Step 2:
+Module Declaration. Module should have the file name.
 
+Step 3:
+Use assign declaration and wire to define the functionality of logic circuits.
+
+Step 4:
+At the end give endmodule.
+
+Step 5:
+Run the program and choose RTL viewer to get RTL realization.
+
+step 6:
+Then Construct the timmimg diagram.
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+
+Program for flipflops  and verify its truth table in quartus using Verilog programming
+
+Developed by: Shriram R
+
+RegisterNumber:  212221240053
+
+## CODE 1:
+~~~
+module flipflop(S,R,clock,Q,Qbar);
+input S,R,clock;
+output Q,Qbar;
+wire X,Y;
+nand(X,S,clock);
+nand(Y,R,clock);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
+~~~
+## CODE 2:
+~~~
+
+module df(D,clock,Q,Qbar);
+input D,clock;
+output Q,Qbar;
+assign Dbar = ~D;
+wire X,Y;
+nand(X,D,clock);
+nand(Y,Dbar,clock);
+nand(Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
+~~~
+## CODE 3:
+~~~
+module exp5(J,K,clock,Q,Qbar);
+input J,K,clock;
+output Q,Qbar;
+wire P,S;
+nand(P,J,clock,Qbar);
+nand(S,K,clock,Q);
+nand(Q,P,Qbar);
+nand(Qbar,S,Q);
+endmodule
+~~~
+## CODE 4:
+~~~
+module tb(T,clock,Q,Qbar);
+input T,clock;
+output Q,Qbar;
+wire A,B;
+nand(A,T,clock,Qbar);
+nand(B,T,clock,Q);
+nand(Q,A,Qbar);
+nand(Qbar,B,Q);
+endmodule
+~~~
 
 
 
 
 
-
-### RTL LOGIC FOR FLIPFLOPS 
-
-
-
-
-
-
-
-
-
-### TIMING DIGRAMS FOR FLIP FLOPS 
+## RTL LOGIC FOR FLIPFLOPS 
+### RTL 1:
+![](rtl1.png)
+### RTL 2:
+![](rtl2.png)
+### RTL 3:
+![](rtl3.png)
+### RTL 4:
+![](rtl4.png)
 
 
+## TIMING DIGRAMS FOR FLIP FLOPS 
 
+### Timimg Diagram 1:
+![](td1.png)
+### Timimg Diagram 2:
+![](td2.png)
+### Timimg Diagram 3:
+![](td3.png)
+### Timimg Diagram 4:
+![](td4.png)
 
 
 
 
 
 ### RESULTS 
+Implementing of all the flipflops using verilog and validating their functionality using their functional tables is successfully Completed.
